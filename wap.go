@@ -32,3 +32,11 @@ func (this *AliPay) TradeWapPay(param AliPayTradeWapPay) (url *url.URL, err erro
 	url = rep.Request.URL
 	return url, err
 }
+// 手机网站支付v2
+func (this *AliPay) TradeWapPayv2(param AliPayTradeWapPay) (results string, err error) {
+	p, err := this.URLValues(param)
+	if err != nil {
+		return "", err
+	}
+	return p.Encode(), err
+}
